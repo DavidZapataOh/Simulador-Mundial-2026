@@ -9,9 +9,24 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@supabase/supabase-js": "^2.86.2",
+    "@tanstack/react-query": "^5.90.12",
+    "clsx": "^2.1.1",
+    "country-flag-icons": "^1.6.4",
+    "downloadjs": "^1.4.7",
+    "framer-motion": "^12.23.25",
+    "html-to-image": "^1.11.13",
+    "lucide-react": "^0.556.0",
+    "nanoid": "^5.1.6",
     "next": "16.0.7",
+    "next-themes": "^0.4.6",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-hook-form": "^7.68.0",
+    "tailwind-merge": "^3.4.0",
+    "zod": "^4.1.13",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -20,7 +35,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.7",
+    "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "^5.4.449",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

@@ -1,26 +1,155 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* World Cup 2026 Color Palette */
+  --wc-red: #E61D25;
+  --wc-green: #3CAC3B;
+  --wc-blue: #2A398D;
+  --wc-gray-light: #D1D4D1;
+  --wc-gray-dark: #555555;
+
+  /* Light Mode Defaults */
+  --background: #F5F5F5;
+  --foreground: #111111;
+  --card: #FFFFFF;
+  --card-foreground: #111111;
+  --border: #E5E7EB;
+}
+
+.dark {
+  /* Epic Dark Mode Palette */
+  --background: #0F172A;
+  /* Slate 900 */
+  --foreground: #F8FAFC;
+  /* Slate 50 */
+  --card: #1E293B;
+  /* Slate 800 */
+  --card-foreground: #F8FAFC;
+  --border: #334155;
+  /* Slate 700 */
+
+  /* Adjust brand colors for dark mode visibility if needed */
+  --wc-blue: #60A5FA;
+  /* Lighter blue for better contrast on dark */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-wc-red: var(--wc-red);
+  --color-wc-green: var(--wc-green);
+  --color-wc-blue: var(--wc-blue);
+  --color-wc-gray-light: var(--wc-gray-light);
+  --color-wc-gray-dark: var(--wc-gray-dark);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base styles - Forced Light Mode */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E5E5E5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A0A0A0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #808080;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--wc-blue);
+  color: white;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--wc-blue);
+  outline-offset: 2px;
+}
+
+/* Animation keyframes */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%);
+  background-size: 200% 100%;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Bracket connector lines (for CSS-based connections) */
+.bracket-line-vertical {
+  position: relative;
+}
+
+.bracket-line-vertical::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  width: 12px;
+  height: 2px;
+  background: #D1D4D1;
+  /* Updated to design system gray */
+}
+
+.bracket-line-horizontal {
+  position: relative;
+}
+
+.bracket-line-horizontal::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #D1D4D1;
+  /* Updated to design system gray */
 }
