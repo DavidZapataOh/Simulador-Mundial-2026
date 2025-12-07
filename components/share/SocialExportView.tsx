@@ -188,7 +188,7 @@ export const SocialExportView = forwardRef<HTMLDivElement, SocialExportViewProps
 
                 {/* Footer / Branding */}
                 <div className="absolute bottom-6 font-mono text-[10px] text-white/20 uppercase tracking-[0.2em]">
-                    mundial26-simulator.vercel.app
+                    simuladordelmundial2026.com
                 </div>
             </div>
         );
